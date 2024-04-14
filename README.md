@@ -49,5 +49,7 @@ Main things:
         -Button "add" (call function addtask())(create
   Back Office:
   -create an xml
-  -class DbConnect
+  -class Rediscon
+  -class Task
+   -function 
 
