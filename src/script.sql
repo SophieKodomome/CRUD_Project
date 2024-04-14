@@ -7,7 +7,7 @@ CREATE DATABASE crud;
 CREATE TABLE todolist(
     id Serial PRIMARY KEY,
     task VARCHAR,
-    order Serial UNIQUE,
+    order_task Serial UNIQUE,
     status Boolean,
     remind timestamp,
     due timestamp,
