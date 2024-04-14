@@ -4,13 +4,12 @@ import javax.servlet.http.*;
 import java.sql.*;
 import java.time.format.DateTimeFormatter;
 
-@WebServlet("/createTask")
 public class AddTask extends HttpServlet {
     private String url = "jdbc:postgresql://localhost:5432/crud";
     private String username = "crud";
     private String password = "crud";
 
-    protected void doPost(HttpServletRequest request,HttpServletResponse response){
+    protected void doPost(HttpServletRequest request,HttpServletResponse response) throws ServletException, IOException {
         String task = request.getParameter("task");
         String remindTime = request.getParameter("remind_time");
         String dueTime =  request.getParameter("due_time");
