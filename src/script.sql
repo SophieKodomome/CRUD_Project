@@ -6,7 +6,7 @@ CREATE DATABASE crud;
 
 TRUNCATE todolist;
 ALTER SEQUENCE todolist_id_seq RESTART WITH 1;
-ALTER SEQUENCE todolist_id_seq RESTART WITH 1; 
+ALTER SEQUENCE todolist_order_task_seq RESTART WITH 1; 
 
 CREATE TABLE todolist(
     id Serial PRIMARY KEY,
