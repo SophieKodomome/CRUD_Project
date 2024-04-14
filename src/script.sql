@@ -4,6 +4,10 @@ ALTER USER crud WITH SUPERUSER;
 CREATE DATABASE crud;
 \c crud;
 
+TRUNCATE todolist;
+ALTER SEQUENCE todolist_id_seq RESTART WITH 1;
+ALTER SEQUENCE todolist_id_seq RESTART WITH 1; 
+
 CREATE TABLE todolist(
     id Serial PRIMARY KEY,
     task VARCHAR,
@@ -15,4 +19,4 @@ CREATE TABLE todolist(
 
 INSERT INTO todolist(task,status,remind,due) VALUES ('make the app',true,CURRENT_TIMESTAMP, CURRENT_TIMESTAMP);
 
-INSERT INTO todolist(task,status,remind,due) VALUES ('make a todo list',true,'2024-04-16 23:59:59','2024-04-20 23:59:59');
+INSERT INTO todolist(task,status,remind,due) VALUES ('make a todo list',false,'2024-04-16 23:59:59','2024-04-20 23:59:59');
