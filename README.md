@@ -31,7 +31,7 @@ Main things:
     -notes
   -todos can be interchangeable(in one category)
 
-  Todo:(for now
+  Todo:(for now)
 
   Front Office:
   -Page de to do list(index):
@@ -40,16 +40,31 @@ Main things:
       -todolists:
         -on going
         -done
-        -button "modify task" (call function replace task)
+        -button "modify task" (call function replaceTask)
         -button "⬆️"(call function swapTask())(update)
         -button "⬇️"(call function swapTask())(update)
         -button "delete task"(call function deleteTask())(delete)
-        -button "finished"(call function finishTask())(delete)
+        -button "finished"(call function finishTask())(update task)
       -Form new task:
-        -Button "add" (call function addtask())(create
+        -Button "add" (call function addtask())(create)
   Back Office:
   -create an xml
   -class Rediscon
   -class Task
-   -function 
+    -function replaceTask()
+    -function swapTask()
+    -function deleteTask()
+    -function finishTask()
+  -create database Todolist:
+   -table todolist
+    (
+     id primary key auto increment,
+     task string,
+     order number auto increment,
+     status boolean,
+     remind day date-time,
+     due day date-time,
+     note string
+     )
+     
 
