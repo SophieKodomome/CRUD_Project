@@ -22,7 +22,7 @@ Back Office:
 To do list tracker:
 Main things:
   -Have an account
-  -Different to do lists(personal, proffessional, etc, etc
+  -Different to do lists(personal, proffessional, etc, etc)
   -todos has:
     -Task
     -Due Date
