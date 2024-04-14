@@ -16,6 +16,7 @@
             <header class="mb-10">
                 <h1 class="font-extrabold uppercase text-xl tracking-tight">Notodo</h1>
             </header>
+            <!--
             <nav class="flex flex-col">
                 <a href="personal_todo.html" class="font-semibold block py-2 px-4 text-sm text-gray-200 hover:text-white hover:underline hover:underline-offset-2">
                     Personal Tasks
@@ -24,6 +25,7 @@
                     Professional Tasks
                 </a>
             </nav>
+        -->
         </aside>
         <main class="container mx-auto py-8 ml-10 mb-10">
             <header class="py-8 ">
@@ -32,7 +34,7 @@
                 </h1>
             </header>
             <article>
-                <section class=" p-4 border rounded-xl shadow-lg flex flex-row mr-10 md:min-w-screen">
+                <section class="p-4 border rounded-xl shadow-lg flex flex-row mr-10 mb-10 md:min-w-screen">
                     <aside class="flex flex-col mr-10">
                         <header>
                             <h2 class="hover:text-blue-600 text-blue-500 font-bold">
@@ -74,8 +76,8 @@
                         </a>
                         <a href="todo.html">
                             <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
-                            Finish!
-                          </button>
+                                Finish!
+                            </button>
                         </a>
                         <a href="todo.html">
                             <button class=" hover:text-blue-600 text-blue-400 underline underline-offset-2 py-2 px-2 rounded">
@@ -89,12 +91,28 @@
                         </a>
                     </aside>
                 </section>
-                <section>
-                    <h3>
-                        Add a new
+                <section class="p-4 border rounded-xl shadow-lg flex flex-col mr-10 mb-10 md:min-w-screen">
+                    <h3 class="text-2xl text-blue-500 font-bold mb-4">
+                        Add a new Task
                     </h3>
-                    <form method="post" action="todo.html">
 
+                    <form class=" flex flex-row space-x-4" method="post" action="todo.html">
+                        <input name="task" class="placeholder-gray-400 p-2 border-2 border-gray-400 rounded-lg hover:border-blue-500 focus:border-blue-500 focus:outline-none text-blue-500"  type="text" placeholder="New Task">
+                        <section class="hover:text-blue-200 bg-blue-500 p-2 rounded-lg text-white flex flex-col">
+                            <span class="font-bold">
+                                <label for="remind_time">Reminder Date</label>
+                            </span>
+                            <input name="remind_time" id="remind_time"class="bg-blue-500" type="datetime-local">
+                        </section>
+                        <section class="hover:text-blue-200 bg-blue-500 p-2 rounded-lg text-white flex flex-col">
+                            <span class="font-bold">
+                                <label for="due_time">Due Date</label>
+                            </span>
+                            <input name="due_time" id="due_time"class="bg-blue-500" type="datetime-local">
+                        </section>
+                        <button class="py-2 px-4 text-white font-semibold bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 rounded-lg shadow-lg">
+                            Add Task
+                        </button>
                     </form>
                 </section>
             </article>
@@ -110,3 +128,12 @@
 </body>
 
 </html>
+<script>
+    const inputField = document.querySelector('input');
+    inputField.addEventListener('focus', () => {
+        inputField.classList.add('border-blue-500');
+    });
+    inputField.addEventListener('blur', () => {
+        inputField.classList.remove('border-blue-500');
+    });
+</script>
