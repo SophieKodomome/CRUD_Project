@@ -34,19 +34,19 @@ Main things:
   Todo:(for now)
 
   Front Office:
-  -Page de to do list(index):
-    -nav side: (categories)
-    -main:
-      -todolists:
-        -on going
-        -done
-        -button "modify task" (call function replaceTask)
-        -button "⬆️"(call function swapTask())(update)
-        -button "⬇️"(call function swapTask())(update)
-        -button "delete task"(call function deleteTask())(delete)
-        -button "finished"(call function finishTask())(update task)
-      -Form new task:
-        -Button "add" (call function addtask())(create)
+  (ok)-Page de to do list(index):
+    (ok)-nav side: (categories)
+    (ok)-main:
+      (ok)-todolists:
+        -(ok)on going
+        (ok)-done
+        (ok)-button "modify task" (call function replaceTask)
+        (ok)-button "⬆️"(call function swapTask())(update)
+        (ok)-button "⬇️"(call function swapTask())(update)
+        (ok)-button "delete task"(call function deleteTask())(delete)
+        (ok)-button "finished"(call function finishTask())(update task)
+      (ok)-Form new task:
+        (ok)-Button "add" (call function addtask())(create)
   Back Office:
   -create an xml
   -class Rediscon
