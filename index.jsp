@@ -18,7 +18,7 @@
 
     <div class="flex md:flex-row md:min-h-screen">
 
-        <aside class="bg-blue-600 md:w-52 md:min-h-screen py-6 px-4 text-white">
+        <aside class="md:w-52 md:min-h-screen py-6 px-4 text-white bg-blue-600">
             <header class="mb-10">
                 <h1 class="font-extrabold uppercase text-xl tracking-tight">Notodo</h1>
             </header>
@@ -40,17 +40,14 @@
             <article>
                 <%
                     for(int i=0; i<todolists.size();i++){
+                        if(todolists.get(i).getStatus()==false){
                 %>
-
-                <%
-                    }
-                %>
-                <section>
+                    <section>
                     <section class="p-4 border rounded-xl shadow-lg flex flex-row mr-10 mb-10 md:min-w-screen">
                         <aside class="flex flex-col mr-10">
                             <header>
                                 <h2 class="hover:text-blue-600 text-blue-500 font-bold">
-                                    Task 1
+                                    <%= todolists.get(i).getTask() %>
                                 </h2>
                             </header>
                             <article class="flex flex-row space-x-4">
@@ -59,7 +56,7 @@
                                         Reminder:
                                     </h3>
                                     <strong class="text-blue-500">
-                                        datetime
+                                        <%= todolists.get(i).getRemind() %>
                                     </strong>
                                 </span>
                                 <span class="flex flex-row space-x-2">
@@ -67,7 +64,7 @@
                                         Due: 
                                     </h3>
                                     <strong class="text-blue-500">
-                                        datetime
+                                        <%= todolists.get(i).getDue() %>
                                     </strong>
                                 </span>
                                 <strong class="hover:text-green-600 text-green-500">
@@ -103,6 +100,12 @@
                             </a>
                         </aside>
                     </section>
+                <%
+                        }
+                    }
+                for(int i=0; i<todolists.size();i++){
+                    if(todolists.get(i).getStatus()==true){
+                %>
                     <section>
                         <header>
                             <h3 class="text-2xl text-blue-500 font-bold border-b-2 pb-4 mb-4 mr-10">
@@ -113,7 +116,7 @@
                             <aside class="flex flex-col mr-10 opacity-50">
                                 <header>
                                     <h2 class="hover:text-blue-600 text-blue-500 font-bold">
-                                        Task 0
+                                        <%= todolists.get(i).getTask() %>
                                     </h2>
                                 </header>
                                 <article class="flex flex-row space-x-4">
@@ -122,7 +125,7 @@
                                             Reminder:
                                         </h3>
                                         <strong class="text-blue-500">
-                                            datetime
+                                            <%=todolists.get(i).getRemind() %>
                                         </strong>
                                     </span>
                                     <span class="flex flex-row space-x-2">
@@ -130,7 +133,7 @@
                                             Due: 
                                         </h3>
                                         <strong class="text-blue-500">
-                                            datetime
+                                            <%=todolists.get(i).getDue() %>
                                         </strong>
                                     </span>
                                     <strong class="hover:text-green-600 text-green-500">
@@ -148,6 +151,10 @@
                         </section>
                     </section>
                 </section>
+            <%
+                    }
+                }
+            %>
                 <section class="p-4 border rounded-xl shadow-lg flex flex-col mr-10 mb-10 md:min-w-screen">
                     <h3 class="text-2xl text-blue-500 font-bold mb-4">
                         Add a new Task

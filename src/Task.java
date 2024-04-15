@@ -68,6 +68,10 @@ public class Task {
         return this.due;
     }
 
+    public boolean getStatus(){
+        return this.status;
+    }
+
     public static ArrayList<Task> getTodoList() {
         ArrayList<Task> todolists = new ArrayList<>();
         String url = "jdbc:postgresql://localhost:5432/crud";

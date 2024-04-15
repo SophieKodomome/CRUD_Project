@@ -39,7 +39,7 @@ public class AddTask extends HttpServlet {
             connection.close();
     
             if (rowsInserted > 0) {
-                response.sendRedirect("index.html");
+                response.sendRedirect("index.jsp");
             } else {
                 response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Task cannot be added");
             }
