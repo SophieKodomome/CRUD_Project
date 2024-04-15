@@ -14,8 +14,7 @@ public class Task {
     private Timestamp due;
     private boolean status;
 
-    public Task() {
-    }
+    public Task() {}
 
     public Task addId(int i) {
         this.id = i;
@@ -46,8 +45,9 @@ public class Task {
         this.due = d;
         return this;
     }
+    
 
-    public ArrayList<Task> getTodoList() {
+    public static ArrayList<Task> getTodoList() {
         ArrayList<Task> todolists = new ArrayList<>();
         String url = "jdbc:postgresql://localhost:5432/crud";
         String username = "crud";

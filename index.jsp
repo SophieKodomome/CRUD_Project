@@ -1,3 +1,9 @@
+<%@ page import="java.sql.*" %>
+<%@ page import="Task.java" %>
+<%@ page import="java.util.ArrayList" %>
+<%
+    ArrayList<Task> todolists = Task.getTodoList();
+%>
 <!DOCTYPE html>
 <html lang="en">
 
