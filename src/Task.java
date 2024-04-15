@@ -68,6 +68,10 @@ public class Task {
                         .addDueTask(result.getTimestamp(6));
                 todolists.add(task);
             }
+
+            statement.close();
+            connection.close();
+            
         } catch (Exception e) {
             e.printStackTrace();
         }
