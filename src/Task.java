@@ -46,6 +46,25 @@ public class Task {
         return this;
     }
     
+    public int getId(){
+        return this.id;
+    }
+
+    public String getTask(){
+        return this.task;
+    }
+
+    public int getOrderTask(){
+        return this.orderTask;
+    }
+
+    public Timestamp getRemind(){
+        return this.remind;
+    }
+
+    public Timestamp getDue(){
+        return this.due;
+    }
 
     public static ArrayList<Task> getTodoList() {
         ArrayList<Task> todolists = new ArrayList<>();
