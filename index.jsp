@@ -1,5 +1,5 @@
 <%@ page import="java.sql.*" %>
-<%@ page import="Task.java" %>
+<%@ page import="myclasses.*"%>
 <%@ page import="java.util.ArrayList" %>
 <%
     ArrayList<Task> todolists = Task.getTodoList();
@@ -22,7 +22,6 @@
             <header class="mb-10">
                 <h1 class="font-extrabold uppercase text-xl tracking-tight">Notodo</h1>
             </header>
-            <!--
             <nav class="flex flex-col">
                 <a href="personal_todo.html" class="font-semibold block py-2 px-4 text-sm text-gray-200 hover:text-white hover:underline hover:underline-offset-2">
                     Personal Tasks
@@ -31,7 +30,6 @@
                     Professional Tasks
                 </a>
             </nav>
-        -->
         </aside>
         <main class="container mx-auto py-8 ml-10 mb-10">
             <header class="py-8 ">
@@ -40,6 +38,13 @@
                 </h1>
             </header>
             <article>
+                <%
+                    for(int i=0; i<todolists.size();i++){
+                %>
+
+                <%
+                    }
+                %>
                 <section>
                     <section class="p-4 border rounded-xl shadow-lg flex flex-row mr-10 mb-10 md:min-w-screen">
                         <aside class="flex flex-col mr-10">
