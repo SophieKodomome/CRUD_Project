@@ -93,7 +93,7 @@
                                     Modify
                                 </button>
                             </a>
-                            <a href="todo.html">
+                            <a href="deleteTask?id=<%= todolists.get(i).getId() %>">
                                 <button class=" hover:text-red-800 text-red-400 underline underline-offset-2 py-2 px-2 rounded">
                                     Delete
                                 </button>
