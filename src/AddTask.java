@@ -1,17 +1,21 @@
 package myclasses;
 
 import java.io.*;
+import java.sql.Connection;
+import java.sql.SQLException;
+import java.sql.Timestamp;
+
 import javax.servlet.*;
 import javax.servlet.http.*;
-import java.sql.*;
+
+import connect.*;
+import task.*;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
 public class AddTask extends HttpServlet {
-    private String url = "jdbc:postgresql://localhost:5432/crud";
-    private String username = "crud";
-    private String password = "crud";
-
+    
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String task = request.getParameter("task");
         Timestamp remindTime = convertDateTimeFormat(request.getParameter("remind_time"));
@@ -23,21 +27,12 @@ public class AddTask extends HttpServlet {
         }
     
         try {
-            Connection connection = DriverManager.getConnection(url, username, password);
+            Connection connection = PostgreConnect.connectToPostgre();
+
     
-            String sql = "INSERT INTO todolist (task, status, remind, due) VALUES (?, false, ?, ?)";
-    
-            PreparedStatement statement = connection.prepareStatement(sql);
-    
-            statement.setString(1, task);
-            statement.setTimestamp(2, remindTime);
-            statement.setTimestamp(3, dueTime);
-    
-            int rowsInserted = statement.executeUpdate();
-    
-            statement.close();
-            connection.close();
-    
+            int rowsInserted = Task.addTask(task, remindTime, dueTime,connection );
+
+
             if (rowsInserted > 0) {
                 response.sendRedirect("index.jsp");
             } else {
