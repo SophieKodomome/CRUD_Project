@@ -1,12 +1,16 @@
-package myclasses;
+package task;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.sql.Time;
 import java.sql.Timestamp;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
+
+import connect.PostgreConnect;
 
 public class Task {
     private int id;
@@ -101,5 +105,23 @@ public class Task {
             e.printStackTrace();
         }
         return todolists;
+    }
+
+    public static int addTask(String task,Timestamp remind, Timestamp due,Connection connection){
+        int DBRespond=0;
+        try {
+            String sql = "INSERT INTO todolist(task,status,remind,due) VALUES ("+task+",false,"+remind+","+due+")";
+
+            Statement statement = connection.createStatement();
+
+            DBRespond = statement.executeUpdate(sql);
+
+            statement.close();
+            connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+        return DBRespond;
     }
 }
