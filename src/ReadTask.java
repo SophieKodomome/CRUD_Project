@@ -18,6 +18,7 @@ public class ReadTask extends HttpServlet {
         try {
             connection = PSQLConnect.getConnection();
             taskList = Task.getTodoList(connection);
+            request.setAttribute("taskList", taskList);
         } catch (SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database Error: " + e.getMessage());
@@ -31,9 +32,9 @@ public class ReadTask extends HttpServlet {
                 }
             }
         }
-        request.setAttribute("taskList", taskList);
         RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
         dispatcher.forward(request, response);
     }
+    
     
 }
