@@ -1,6 +1,7 @@
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.Statement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -79,4 +80,37 @@ public class Task {
         statement.close();
         return rowsInserted;
     }
+
+    public static ArrayList<Task> getTodoList(Connection connection) throws SQLException {
+        ArrayList<Task> todolists = new ArrayList<>();
+        Statement statement = null;
+        ResultSet result = null;
+        try {
+            statement = connection.createStatement();
+            result = statement.executeQuery("select * from todolist");
+    
+            while (result.next()) {
+                Task task = new Task();
+                task
+                        .addId(result.getInt(1))
+                        .addTask(result.getString(2))
+                        .addOrderTask(result.getInt(3))
+                        .addStatus(result.getBoolean(4))
+                        .addRemindTask(result.getTimestamp(5))
+                        .addDueTask(result.getTimestamp(6));
+                todolists.add(task);
+            }
+        } finally {
+            if (result != null) {
+                result.close();
+            }
+            if (statement != null) {
+                statement.close();
+            }
+        }
+        return todolists;
+    }
+    
+
+
 }

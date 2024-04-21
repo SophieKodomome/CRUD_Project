@@ -21,7 +21,8 @@ public class AddTask extends HttpServlet {
         }
 
         try {
-            Connection connection = new PSQLConnect().getConnection();
+            new PSQLConnect();
+            Connection connection = PSQLConnect.getConnection();
 
             int rowsInserted = Task.addTask(task, remindTime, dueTime, connection);
 
