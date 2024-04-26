@@ -18,7 +18,30 @@ public class ReadTask extends HttpServlet {
         try {
             connection = PSQLConnect.getConnection();
             taskList = Task.getTodoList(connection);
-            request.setAttribute("taskList", taskList);
+            int[] id = new int[taskList.size()];
+            ArrayList<String> tosk = new ArrayList<>();
+            int[] orderTask = new int[taskList.size()];
+            ArrayList<Timestamp> remind = new ArrayList<>();
+            ArrayList<Timestamp> due = new ArrayList<>();
+            boolean[] status = new boolean[taskList.size()];
+            int count =0;
+            for(Task task : taskList){
+                id[count] = task.getId();
+                tosk.add(task.getTask());
+                orderTask[count] = task.getOrderTask();
+                remind.add(task.getRemind());
+                due.add(task.getDue());
+                status[count] = task.getStatus();
+                count++;
+            }
+            request.setAttribute("id", id);
+            request.setAttribute("task", tosk);
+            request.setAttribute("orderTask", orderTask);
+            request.setAttribute("remind", remind);
+            request.setAttribute("due", due);
+            request.setAttribute("status", status);
+            RequestDispatcher dispatcher = request.getRequestDispatcher("tasklist.jsp");
+            dispatcher.forward(request, response);
         } catch (SQLException e) {
             e.printStackTrace();
             response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "Database Error: " + e.getMessage());
@@ -32,8 +55,6 @@ public class ReadTask extends HttpServlet {
                 }
             }
         }
-        RequestDispatcher dispatcher = request.getRequestDispatcher("index.jsp");
-        dispatcher.forward(request, response);
     }
     
     

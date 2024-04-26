@@ -8,9 +8,18 @@
     <servlet-name>CreateTask</servlet-name>
     <servlet-class>AddTask</servlet-class>
     </servlet>
+    <servlet>
+    <servlet-name>ShowTask</servlet-name>
+    <servlet-class>ReadTask</servlet-class>
+    </servlet>
+
     <servlet-mapping>
         <servlet-name>CreateTask</servlet-name>
         <url-pattern>/addTask</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>ShowTask</servlet-name>
+        <url-pattern>/readtask</url-pattern>
     </servlet-mapping>
 
 

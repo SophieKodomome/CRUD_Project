@@ -160,6 +160,7 @@
                             Add Task
                         </button>
                     </form>
+                    <a href="readtask">List</a>
                 </section>
             </article>
             <footer class="text-gray-800 border-t mr-10 pt-10 mt-10">
